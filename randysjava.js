@@ -10,17 +10,37 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
-
-
-
-
-
-
-
-
-
-
+  var newArray = []
+  var database = firebase.database();
+  
+  
+  $("#add-employee-btn").on("click", function(event) {
+    event.preventDefault();
+  
+  
+    var empName = $("#employee-name-input").val().trim();
+  
+  
+  
+  
+    database.ref().push(empName);
+  
+  
+    $("#employee-name-input").val("");
+  });
+  
+  
+  database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val());
+  
+  
+    var empName = childSnapshot.val()
+  
+  newArray.push(empName)
+  $('#somediv').html(newArray)
+  
+  });
+   
 var times = []
 function count() {
   array_elements = ["a", "b", "c", "d", "e", "a", "b", "c", "f", "g", "h", "h", "h", "e", "a"];
