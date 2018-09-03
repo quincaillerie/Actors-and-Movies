@@ -69,6 +69,24 @@ body {
 
 }
 
+table {
+        float: right;
+        border: thick black solid;
+        margin-top: 20px;
+        width: 35%;
+}
+
+.chart-head {
+        background-color: lightcoral;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+}
+
+.chart-body {
+        background-color: white;
+}
+
 .footer {
         position: fixed;
         left: 0;
