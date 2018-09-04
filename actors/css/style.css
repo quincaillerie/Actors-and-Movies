@@ -10,6 +10,7 @@ body, html {
 
 body {
         background-image: url("images/film-roll.png");
+
         /* Full height */
         height: 100%; 
 
@@ -17,11 +18,14 @@ body {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
 }
 
 .main-container {
         max-width: 1100px;
+
         margin: 25px auto 0 auto;
+
         background-color: white;
         opacity: .92;
         border: solid black thick;
@@ -90,6 +94,7 @@ table {
 
 .chart-head {
         background-color: lightcoral;
+
         color: white;
         font-weight: bold;
         font-size: 20px;
@@ -100,6 +105,7 @@ table {
         background-color:white;
         color: black;
         width: 25%;
+
 }
 
 .footer {
