@@ -58,8 +58,10 @@ $(document).ready(function () {
                 if (response.Search.Title === $("#movie-name").val()) {
                     var title = response.Search[i].Title;
                     var year = response.Search[i].Year
+                    var img = response.Search[i].Poster
                     $("#container").append(response.Search[i].Title);
                     $("#container").append(response.Search[i].Year);
+                    console.log(response.Search[i].imdbID);
                     console.log(response);
                     console.log("response check 2");
                     $("#movie-name").keyup(function(event){
@@ -74,9 +76,11 @@ $(document).ready(function () {
                     var title = response.Search[i].Title;
                     var year = response.Search[i].Year
                     var img = response.Search[i].Poster
-                    $("#container").append("<div class='result'> <p>Title: " + title + " Year: " + year + "</p> <img src='" + img + "'> </div>");
+                    $("#container").append("<div class='result'> <p>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/"+response.Search[i].imdbID+"/'>IMDb Trailer</a> <br> <img src='" + img + "'><br></div>");
+                    $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id='+search+'&amp;shortgross=0"></script>')
                     console.log("Imprecise Movie Input");
                     console.log(response.Search[i].Title);
+                    console.log(response.Search[i].imdbID);
                     $("#movie-name").keyup(function(event){
                         event.preventDefault();
                         if(event.keyCode == 13){
@@ -85,6 +89,11 @@ $(document).ready(function () {
                     })
                 };
             };
+
+            $(".brand-log").on('click', 'a', function(e){ 
+                e.preventDefault(); 
+                var url = $(this).attr('index.html'); 
+            });
             // console.log(response.data[i].embedded_url);
             /*     var gifUrl = response.data[i].rating;
                 console.log("url is: " + gifUrl)
