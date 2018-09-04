@@ -76,7 +76,7 @@ $(document).ready(function () {
                     var title = response.Search[i].Title;
                     var year = response.Search[i].Year
                     var img = response.Search[i].Poster
-                    $("#container").append("<div class='result'> <p>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/"+response.Search[i].imdbID+"/'>IMDb Trailer</a> <br> <img src='" + img + "'></div>");
+                    $("#container").append("<div class='result'> <p>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/"+response.Search[i].imdbID+"/'>IMDb Trailer</a> <br> <img src='" + img + "'><br></div>");
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id='+search+'&amp;shortgross=0"></script>')
                     console.log("Imprecise Movie Input");
                     console.log(response.Search[i].Title);
