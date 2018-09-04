@@ -39,6 +39,46 @@ var tag = document.createElement('script');
       }
 
 
+// creating query to get movie trailer
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.themoviedb.org/3/movie/%7Bmovie_id%7D/videos?language=en-US&api_key=a5b28b40ca05946a267a6aa421bbc46b",
+  "method": "GET",
+  "headers": {},
+  "data": "{}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+
+
+
+
+
+// function displayMovieInfo() {
+  // Grabbing and storing the data-animal property value from the button
+  var trailer = $(this).attr("data-trailer");
+  
+
+      var queryURL = "https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=a5b28b40ca05946a267a6aa421bbc46b&append_to_response=videos,image";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(queryURL);
+        console.log(response);
+        var results = response.data;
+
+      });
+
+
+
 
 
 
