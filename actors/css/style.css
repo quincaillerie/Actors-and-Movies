@@ -30,6 +30,9 @@ body {
         opacity: .92;
         border: solid black thick;
     }
+.result {
+        padding-right: 20px;
+}
 
 .result {
         display: inline-block;
@@ -58,6 +61,10 @@ body {
         color: white;
         margin-top: -70px;
         float: right;
+}
+
+.brand-logo {
+        z-index: 1;
 }
 
 .logo-label {
