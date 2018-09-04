@@ -4,21 +4,28 @@
         box-sizing: border-box;
 }
 
+body, html {
+        height: 100%;
+    }
+
 body {
         background-image: url("images/film-roll.png");
+
+        /* Full height */
         height: 100%; 
+
+        /* Center and scale the image nicely */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-}
 
-body, html {
-        height: 100%;
 }
 
 .main-container {
         max-width: 1100px;
-        margin: 30px auto 0 auto;
+
+        margin: 25px auto 0 auto;
+
         background-color: white;
         opacity: .92;
         border: solid black thick;
@@ -85,21 +92,27 @@ body, html {
 }
 
 table {
+        width: 25%;
+        border: solid black thick;
         float: right;
-        border: thick black solid;
+        margin-right: 60px;
         margin-top: 20px;
-        width: 35%;
 }
 
 .chart-head {
         background-color: lightcoral;
-        font-size: 20px;
-        font-weight: bold;
+
         color: white;
+        font-weight: bold;
+        font-size: 20px;
+        width: 25%;
 }
 
 .chart-body {
-        background-color: white;
+        background-color:white;
+        color: black;
+        width: 25%;
+
 }
 
 .footer {
