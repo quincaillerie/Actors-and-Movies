@@ -29,9 +29,11 @@ body {
         background-color: white;
         opacity: .92;
         border: solid black thick;
-    }
+}
+
 .result {
         padding-right: 20px;
+        padding-left: 30px;
 }
 
 .result {
@@ -92,27 +94,25 @@ body {
 }
 
 table {
-        width: 25%;
+        width: 30%;
         border: solid black thick;
         float: right;
-        margin-right: 60px;
         margin-top: 20px;
 }
 
 .chart-head {
         background-color: lightcoral;
-
         color: white;
         font-weight: bold;
-        font-size: 20px;
-        width: 25%;
+        size: 20px;
+        width: 30%;
 }
 
 .chart-body {
         background-color:white;
         color: black;
-        width: 25%;
-
+        width: 30%;
+        padding-left: 10px;
 }
 
 .footer {
