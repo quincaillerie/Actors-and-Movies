@@ -1,0 +1,119 @@
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+
+body, html {
+        height: 100%;
+    }
+
+body {
+        background-image: url("images/film-roll.png");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+}
+
+.main-container {
+        max-width: 1100px;
+
+        margin: 25px auto 0 auto;
+
+        background-color: white;
+        opacity: .92;
+        border: solid black thick;
+    }
+
+.result {
+        display: inline-block;
+}
+
+.fandango {
+        float: right;
+        margin-left: 820px;
+        margin-top: -70px;
+        color: white;
+        position: absolute;
+}
+
+.tomatoes {
+        color: black;
+        margin-left: 900px;
+        position: absolute;
+        color: white;
+        margin-top: -70px;
+        float: right;
+}
+
+.imbd {
+        margin-left: 1025px;
+        position: absolute;
+        color: white;
+        margin-top: -70px;
+        float: right;
+}
+
+.logo-label {
+        margin-left: 30px;
+}
+
+.movie-icon {
+        position: relative;
+        margin-left: -140px;
+}
+
+.headline {
+        margin-left: 30px;
+}
+
+.form-search {
+        margin-bottom: 15px;
+        width: 900px;
+        padding-left: 30px;
+}
+
+.search-icon {
+        font-size: 18px;
+
+}
+
+table {
+        width: 25%;
+        border: solid black thick;
+        float: right;
+        margin-right: 60px;
+        margin-top: 20px;
+}
+
+.chart-head {
+        background-color: lightcoral;
+
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        width: 25%;
+}
+
+.chart-body {
+        background-color:white;
+        color: black;
+        width: 25%;
+
+}
+
+.footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: lightcoral;
+        color: black;
+        text-align: center;
+    }
