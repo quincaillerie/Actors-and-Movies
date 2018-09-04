@@ -10,23 +10,23 @@ var config = {
   };
   firebase.initializeApp(config);
 
-  var newArray = []
+  var searchArray = []
   var database = firebase.database();
   
   
-  $("#add-employee-btn").on("click", function(event) {
-    event.preventDefault();
+  $("#search").on("click", function(e) {
+    e.preventDefault();
   
   
-    var empName = $("#employee-name-input").val().trim();
+    var search = $("#search").val().trim();
   
   
   
   
-    database.ref().push(empName);
+    database.ref().push(search);
   
   
-    $("#employee-name-input").val("");
+    $("#search").val("");
   });
   
   
@@ -34,26 +34,26 @@ var config = {
     console.log(childSnapshot.val());
   
   
-    var empName = childSnapshot.val()
+    var search = childSnapshot.val()
   
-  newArray.push(empName)
-  $('#somediv').html(newArray)
+  searchArray.push(search)
+  $('#searchDiv').html(searchArray)
   
   });
    
-var times = []
+var newSearch = []
 function count() {
-  array_elements = ["a", "b", "c", "d", "e", "a", "b", "c", "f", "g", "h", "h", "h", "e", "a"];
+  // array_elements = ["a", "b", "c", "d", "e", "a", "b", "c", "f", "g", "h", "h", "h", "e", "a"];
   
-  array_elements.sort();
+  searchArray.sort();
   
   var current = null;
  
   var cnt = 0;
 
-  for (var i = 0; i < array_elements.length+1; i++) {
+  for (var i = 0; i < searchArray.length+1; i++) {
  
-      if (array_elements[i] != current) {
+      if (searchArray[i] != current) {
        
           if (cnt > 0) {
         
@@ -61,9 +61,9 @@ function count() {
                 target: current,
                 howMany: cnt,
               }
-              times.push(newObj)
+              newSearch.push(newObj)
           }
-          current = array_elements[i];
+          current = searchArray[i];
           cnt = 1;
          
       } else {
@@ -76,7 +76,7 @@ function count() {
 }
 count();
 console.log('object below')
-console.log(JSON.stringify(times))
+console.log(JSON.stringify(newSearch))
 
 
 function compare(a,b) {
@@ -86,6 +86,7 @@ function compare(a,b) {
     return 1;
   return 0;
 }
+compare();
 
-times.sort(compare);
-console.log(times)
+newSearch.sort(compare);
+console.log(newSearch)
