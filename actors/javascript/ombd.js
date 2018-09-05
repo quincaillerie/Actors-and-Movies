@@ -1,44 +1,3 @@
-// var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-// var search = "";
-
-/*  var compass = ["north", "east", "south", "west"];
- console.log("hello"); */
-
-/*   for (i = 0; i < compass.length; i++) {
-      $("body").append("<button class='movie-button " + "side" + i + "'>" + compass[i] + "</button>")
-      console.log("i is " + i);
- 
- 
- 
-  }; */
-// ON CLICK FUNCTION
-/* $(".movie-button ").click(function () {
-    console.log(name);
-    console.log('INSIDE CLICK #1')
-    $("p").append("<b>button[i]</b>");
-    // console.log(i);
-    // console.log("test");
-    // good code
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log('response is ' response);
-
-        if (response.Title === $("#movie-name").val()) {
-
-        } else {
-            console.log("Wrong Movie Input");
-            console.log(response.Title);
-        };
-
-        // console.log(response.data[i].embedded_url);
-        /*     var gifUrl = response.data[i].rating;
-            console.log("url is: " + gifUrl)
-            $(".container").append(`<img src="${gifUrl}">`); */
-/* });
-}); */
-
 $(document).ready(function () {
     var config = {
         apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
@@ -87,123 +46,40 @@ $(document).ready(function () {
             $("#container").empty();
             for (var i = 0; i < response.Search.length; i++) {
                 console.log("i is " + i);
+                var resultDiv = $('<div class="col-md-4 col-12">');
+                var info = $("<p>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>IMDb Trailer</a><hr><br><img src='" + img + "'><br>");
 
-                if (response.Search.Title === $("#movie-name").val()) {
-                    var title = response.Search[i].Title;
-                    var year = response.Search[i].Year
-                    var img = response.Search[i].Poster
-                    $("#container").append(response.Search[i].Title);
-                    $("#container").append(response.Search[i].Year);
-                    console.log(response.Search[i].imdbID);
-                    console.log(response);
-                    console.log("response check 2");
-        
-
-                } else {
-                    var title = response.Search[i].Title;
-                    var year = response.Search[i].Year
-                    var img = response.Search[i].Poster
-                    $("#container").append("<div class='result'> <p>Title: " + title + " Year: " + year + "</p> <img src='" + img + "'> </div>");
+                var title = response.Search[i].Title;
+                var year = response.Search[i].Year;
+                var noImg = function() {
+                    if(response.Search[i].Poster === "N/A") {
+/*                         $("#container").append("<div class='result'> <img src='http://4.bp.blogspot.com/-uBZbGGe3zeA/T40TuyYUl6I/AAAAAAAABV0/pyBqkWi83x8/s1600/NO+POSTER.jpg'> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><hr><br></div>");
+ */                        return false;
+                    }
+                    return response.Search[i].Poster;
+                };
+                var img = noImg() || 'css/images/nopicture.png';
+                $("#container").prepend("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><hr><br></div>");
+                noImg;
+                    $("body").prepend('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
                     console.log("Imprecise Movie Input");
                     console.log(response.Search[i].Title);
-                    $("#movie-name").keyup(function(event){
-                        event.preventDefault();
-                        if(event.keyCode == 13){
+                    console.log(response.Search[i].imdbID);
+                $("#movie-name").keyup(function (event) {
+                            event.preventDefault();
+                        if (event.keyCode == 13) {
                             $("#submit").click();
                         }
                     })
                 };
-            };
-
-            $(".brand-log").on('click', 'a', function(e){ 
-                e.preventDefault(); 
-                var url = $(this).attr('index.html'); 
+    
+            $(".brand-log").on('click', 'a', function (e) {
+                            e.preventDefault();
+                        var url = $(this).attr('index.html');
+                    });
+                });
+        
             });
-            // console.log(response.data[i].embedded_url);
-            /*     var gifUrl = response.data[i].rating;
-                console.log("url is: " + gifUrl)
-                $(".container").append(`<img src="${gifUrl}">`); */
+        
         });
-
-
-
-    });
-   
-
-    $("#submit").click(function (e) {
-        e.preventDefault();
-        var search = $("#movie-name").val();
-    database.ref().push(search);
-        });
-
-    database.ref().on("child_added", function(childSnapshot) {
-
-                        var search = childSnapshot.val()
-                
-                        searchArray.push(search)
-                      
-           
-        });
-     console.log(searchArray)
-    //  why is search array undefined ...
-     console.log(searchArray[5])
-    //  var tempArray = SearchArray.sort();
-    //  console.log(tempArray);
-            //     var  newSearch = [];
-            //             function count() {
-            //             var current = null;
-                        
-            //             var cnt = 0;
-                
-            //             for (var i = 0; i < searchArray.length+1; i++) {
-                    
-            //                 if (searchArray[i] != current) {
-                            
-            //                     if (cnt > 0) {
-                            
-            //                         var newObj = {
-            //                         target: current,
-            //                         howMany: cnt,
-            //                         }
-            //                         newSearch.push(newObj)
-            //                     }
-            //                     current = searchArray[i];
-            //                     cnt = 1;
-                            
-            //                 } else {
-                                
-            //                     cnt++;
-                                
-            //                 }
-            //             }
-                
-            //     }
-            // function compare(a,b) {
-            //     if (a.howMany > b.howMany)
-            //     return -1;
-            //     if (a.howMany < b.howMany)
-            //     return 1;
-            //     return 0;
-            // };
-            // count();
-            // newSearch.sort(compare);
-          
-                //  select recent serach boxes and append newSearch[number].target
-            //     function makeTable(){
-            //         for (var i = 0; i <=2; i++){
-            //     console.log(newSearch[1].howMany)
-            //         $('#searchResults').replaceWith("<tr><td>"+newSearch[1].target+"</td><td>"+newSearch[1].howMany+"</td></tr>")
-            //     }}
-            // makeTable();
-
-
-
-
-    
-    
-    
-
-
- 
-});
-
+        

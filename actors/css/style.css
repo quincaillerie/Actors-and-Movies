@@ -10,59 +10,48 @@ body, html {
 
 body {
         background-image: url("images/film-roll.png");
-
-        /* Full height */
-        height: 100%; 
-
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
+        height: 100%;  /* Full height */
+        background-position: center;  /* Center and scale the image nicely */
         background-size: cover;
+         /* display: flex; */
+         min-height: 100vh;
+         flex-direction: column;
 
+}
+.nav-wrapper {
+        margin-left: 250px;
+        /* border-right: 250px; */
+        /* margin-bottom: 0; */
+}
+
+.fandango {
+        margin-right: 220px;
+}    
+main {
+        flex: 1 0 auto;
+      }
+       
+#box-office {
+        border-right: 10px;
+}
+
+#chart {
+        margin-right: 30px;
 }
 
 .main-container {
         max-width: 1100px;
-
         margin: 25px auto 0 auto;
-
         background-color: white;
         opacity: .92;
         border: solid black thick;
 }
 
 .result {
-        padding-right: 20px;
+        padding-right: 31px;
         padding-left: 30px;
-}
-
-.result {
+        /* border: solid lightslategray 1px; */
         display: inline-block;
-}
-
-.fandango {
-        float: right;
-        margin-left: 820px;
-        margin-top: -70px;
-        color: white;
-        position: absolute;
-}
-
-.tomatoes {
-        color: black;
-        margin-left: 900px;
-        position: absolute;
-        color: white;
-        margin-top: -70px;
-        float: right;
-}
-
-.imbd {
-        margin-left: 1025px;
-        position: absolute;
-        color: white;
-        margin-top: -70px;
-        float: right;
 }
 
 .brand-logo {
@@ -105,15 +94,17 @@ table {
         color: white;
         font-weight: bold;
         size: 20px;
-        width: 30%;
-}
+        width: 20%;
+      }
 
 .chart-body {
         background-color:white;
         color: black;
-        width: 30%;
+        width: 20%;
         padding-left: 10px;
+        border-right: 10px;
 }
+
 
 .footer {
         position: fixed;
@@ -123,4 +114,42 @@ table {
         background-color: lightcoral;
         color: black;
         text-align: center;
+}
+
+@media screen and (max-width: 980px) {
+        .column  {
+            width: 900px;
+        }
+        p {
+            width: 900px;
+        }
+        .wrapper  {
+            width: 900px;
+        }
     }
+    @media screen and (max-width: 768px) {
+        .column  {
+            width: 750px;   
+        }
+        p {
+            width: 750px;
+        }
+        .wrapper  {
+            width: 750px;
+        }
+    }
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 640px) {
+        .column {
+            width: 500px;
+        }
+        p {
+            width: 500px;
+        }
+        li {
+            float: left;
+            padding-left: 0;
+            
+        }
+    }
+
