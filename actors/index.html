@@ -13,47 +13,57 @@
 </head>
 
 <body>
-    <div class="main-container">
-
+    <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a style="font-size: 23px" href="index.html" class="brand-logo logo-label">OMDB Movies</a>
-                <i class="material-icons movie-icon">local_movie</i>
-                <a class="imbd" href="https://www.imdb.com/" target="_blank">IMDB</a>
-                <a class="tomatoes" href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a>
-                <a class="fandango" href="https://www.fandango.com/" target="_blank">Fandango</a>
+                <a href="index.html" class="brand-logo"><i class="material-icons movie-icon">local_movie</i>OMDB Movie</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://www.imdb.com/" target="_blank">IMDBs</a></li>
+                    <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
+                    <li class="fandango"><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
+                </ul>
         </nav>
+        </div>
 
-        <h4 class="headline">Search Your Favorite Movie</h4>
+        <div class="main-container">
+            <h4 class="headline">Search Your Favorite Movie</h4>
 
-        <form class="form-search" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search" id="movie-name">
-            <button type="submit" id="submit" class="btn waves-effect waves-light" name="action">
-                <label class="white-text search-icon">Search</label>
-                <i class="material-icons">search</i>
-            </button>
-        </form>
+            <form class="form-search" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search" id="movie-name">
+                <button type="submit" id="submit" class="btn waves-effect waves-light" name="action">
+                    <label class="white-text search-icon">Search</label>
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
 
-        <br>
-        <br>
+            <br>
+            <br>
+            <div id=chart>
+            <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
+        </div>
 
-        <div id="container">
-
+            <div id="container">
+                <!-- 
             <footer>
                 <div class="footer">
-                    &copy; copyright 2018 OMDb
+                    &copy; copyright 2018 - La Quincaillerie
+                </div>
+            </footer> -->
+
+                <!--JavaScript at end of body for optimized loading-->
+
+
+
+                <div id="mini-container">
+                    <!--                 <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id="+search+"amp;shortgross=0"></script> -->
+                </div>
+            </div>
+            <footer>
+                <div class="footer">
+                    &copy; copyright 2018 - La Quincaillerie
                 </div>
             </footer>
-
-            <!--JavaScript at end of body for optimized loading-->
-
-
-        <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
-
-        <div id="mini-container">
-<!--                 <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id="+search+"amp;shortgross=0"></script>
- -->        </div>
-
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="javascript/ombd.js"></script>
