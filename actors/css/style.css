@@ -24,6 +24,9 @@ body {
         /* margin-bottom: 0; */
 }
 
+.title {
+        min-width: 33%;
+}
 .fandango {
         margin-right: 220px;
 }    
@@ -52,6 +55,7 @@ main {
         padding-left: 30px;
         /* border: solid lightslategray 1px; */
         display: inline-block;
+        width: 33%;
 }
 
 .brand-logo {
