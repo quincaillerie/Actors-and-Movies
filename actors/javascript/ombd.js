@@ -91,7 +91,6 @@ $(document).ready(function () {
         makeTable();
     }, 2000)
 
-
     var newSearch = [];
     function count() {
 
