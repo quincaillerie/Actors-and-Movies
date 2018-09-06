@@ -1,103 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Actor Scope</title>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-    <h1>HelloS</h1>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous">
-  </script>
-    <script src="randysjava"></script>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Info about your favorite movie!</a>
-            <div class="col s12">
-                <!-- <a href="#!" class="breadcrumb">First</a>
-                    <a href="#!" class="breadcrumb">Second</a>
-                    <a href="#!" class="breadcrumb">Third</a> -->
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="col-md-6 col-ms-offset-3">
+    <div class="navbar-fixed">
+        <nav>
             <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                        <input type="submit" value="Search">
-                    </div>
-                </form>
-                <div id="results"></div>
-                <!-- <div class="item">
-                <h2>{{title}}</h2>
-                <iframe classh="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-            </div> -->
+                <a href="index.html" class="brand-logo"><i class="material-icons movie-icon">local_movie</i>Amoureux du Cinéma</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://www.imdb.com/" target="_blank">IMDBs</a></li>
+                    <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
+                    <li class="fandango"><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
+                </ul>
+        </nav>
+        </div>
+
+        <div class="main-container">
+            <h4 class="headline">Search Your Favorite Movie</h4>
+
+            <form class="form-search" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search" id="movie-name">
+                <button type="submit" id="submit" class="btn waves-effect waves-light" name="action">
+                    <label class="white-text search-icon">Search</label>
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+
+            <br>
+            <br>
+            <div id=chart>
+                <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
             </div>
-            <div id="player"></div>
-        </div>
-
-
-        <!-- Responsive Embedded Videos -->
-        <!-- <iframe id="ytplayer" type="text/html" width="640" height="360"
-  src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-  src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0"
-  frameborder="0"/> -->
-
-        <!-- <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ejzBThUASXw" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-            allowfullscreen></iframe>
-        </div> -->
-
-    </div>
-<br>
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">The Quincaillerie Corporation</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-
-                    </ul>
-                </div>
+            <div id=table>
+                <table>
+                    <thead>
+                      <tr>
+                          <th>Searched</th>
+                          <th>Times Searched</th>
+                      </tr>
+                    </thead>
+                     <tbody id="searchResults">
+                    </tbody>
+                  </table>
             </div>
-        </div>
-      
 
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
+            <div id="container">
+
 
                 <!--JavaScript at end of body for optimized loading-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-                <!-- <script src="https://apis.google.com/js/api.js"></script> -->
-                <script src="youtube.js"></script>
 
->>>>>>> anne
+
+                <div id="mini-container">
+                   
+
+                </div>
+            </div>
+            <footer>
+                <div class="footer">
+                    &copy; copyright 2018 - La Quincaillerie
+                </div>
+            </footer>
+        </div>
+        <!--                 <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id="+search+"amp;shortgross=0"></script>
+ -->
+        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        <script src="javascript/ombd.js"></script>
+
 </body>
 
 </html>
-               
