@@ -47,12 +47,12 @@ $(document).ready(function () {
         
             });
         
-        });
+        
         
 
 
 
-    });
+    
     var config = {
         apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
         authDomain: "movieprojectissofun.firebaseapp.com",
