@@ -4,7 +4,7 @@ $(document).ready(function () {
         e.preventDefault();
         var search = $("#movie-name").val();
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-        console.log(search);
+        // console.log(search);
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -12,10 +12,6 @@ $(document).ready(function () {
             console.log(response);
             $("#container").empty();
             for (var i = 0; i < response.Search.length; i++) {
-                console.log("i is " + i);
-                // var resultDiv = $('<div class="col s4"> </div>');
-                // var info = $("<p class=>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>IMDb Trailer</a><hr><br><img src='" + img + "'><br>");
-
                 var title = response.Search[i].Title;
                 var year = response.Search[i].Year;
                 var noImg = function() {
@@ -25,19 +21,15 @@ $(document).ready(function () {
                     return response.Search[i].Poster;
                 };
                 var img = noImg() || 'css/images/nopicture.png';
-                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><hr><br></div>");
+                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='tn-floating btn-small waves-effect waves-light green'><i class='material-icons'>add</i></a><hr><br></div>");
                 noImg;
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
-                    console.log("Imprecise Movie Input");
-                    console.log(response.Search[i].Title);
-                    console.log(response.Search[i].imdbID);
-                $("#movie-name").keyup(function (event) {
-                            event.preventDefault();
-                        if (event.keyCode == 13) {
-                            $("#submit").click();
-                        }
-                    })
                 };
+            
+            $(".tn-floating").click(function() {
+                console.log("button clicked")
+                $("#player").toggle();
+            })
     
             $(".brand-log").on('click', 'a', function (e) {
                             e.preventDefault();
@@ -47,12 +39,7 @@ $(document).ready(function () {
         
             });
         
-        
-        
-
-
-
-    
+    // Firebase development
     var config = {
         apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
         authDomain: "movieprojectissofun.firebaseapp.com",
@@ -112,14 +99,10 @@ $(document).ready(function () {
                 }
                 current = searchArray[i];
                 cnt = 1;
-
             } else {
-
                 cnt++;
-
             }
         }
-
     }
     function compare(a, b) {
         // sort our new array by how many times things were searched
@@ -131,7 +114,7 @@ $(document).ready(function () {
     };
     //  select recent serach boxes and append newSearch[number].target for amount of seach results you want
     function makeTable() {
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 5; i++) {
 
             $('#searchResults').append("<tr><td>" + newSearch[i].target + "</td><td>" + newSearch[i].howMany + "</td></tr>")
             console.log(newSearch)
