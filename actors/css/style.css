@@ -1,0 +1,183 @@
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+
+body, html {
+        height: 100%;
+    }
+
+body {
+        background-image: url("images/film-roll.png");
+        height: 100%;  /* Full height */
+        background-position: center;  /* Center and scale the image nicely */
+        background-size: cover;
+         /* display: flex; */
+         min-height: 100vh;
+         flex-direction: column;
+
+}
+.nav-wrapper {
+        margin-left: 250px;
+        /* border-right: 250px; */
+        /* margin-bottom: 0; */
+}
+
+.title {
+        min-width: 33%;
+}
+.fandango {
+        margin-right: 220px;
+}    
+main {
+        flex: 1 0 auto;
+      }
+       
+#box-office {
+        border-right: 10px;
+}
+
+#chart {
+        margin-right: 30px;
+}
+
+.main-container {
+        max-width: 1100px;
+        margin: 25px auto 0 auto;
+        background-color: white;
+        opacity: .92;
+        border: solid black thick;
+        background-color: #e6e6e6;
+}
+
+.result {
+        padding-right: 31px;
+        padding-left: 30px;
+        /* border: solid lightslategray 1px; */
+        display: inline-block;
+        width: 33%;
+}
+
+.brand-logo {
+        z-index: 1;
+}
+
+.logo-label {
+        margin-left: 30px;
+}
+
+.movie-icon {
+        position: relative;
+        margin-left: -140px;
+}
+
+.headline {
+        margin-left: 30px;
+}
+
+.form-search {
+        margin-bottom: 15px;
+        width: 900px;
+        padding-left: 30px;
+}
+
+.search-icon {
+        font-size: 18px;
+
+}
+
+.tn-floating      {
+
+}
+
+table {
+        width: 30%;
+        border: solid lightslategray;
+        float: right;
+        margin-top: 20px;
+        margin-right: 10px;
+}
+
+#table {
+  float: left;   
+  margin-left:30px; 
+  width: 28%;
+
+}
+
+#table2 {
+        width: 100%;
+       
+      }
+
+.chart-head {
+        background-color: lightcoral;
+        color: white;
+        font-weight: bold;
+        size: 20px;
+}
+
+.chart-body {
+        background-color:white;
+        padding-left: 10px;
+        border-right: 10px;
+}
+
+.hidden {
+        display: block !important;
+}
+
+#player {
+        display: none;
+        margin-left: 20%;
+}
+
+
+.footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: lightcoral;
+        color: black;
+        text-align: center;
+}
+
+@media screen and (max-width: 980px) {
+        .column  {
+            width: 900px;
+        }
+        p {
+            width: 900px;
+        }
+        .wrapper  {
+            width: 900px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .column  {
+            width: 750px;   
+        }
+        p {
+            width: 750px;
+        }
+        .wrapper  {
+            width: 750px;
+        }
+    }
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 640px) {
+        .column {
+            width: 500px;
+        }
+        p {
+            width: 500px;
+        }
+        li {
+            float: left;
+            padding-left: 0;
+            
+        }
+    }
+
