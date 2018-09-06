@@ -23,17 +23,16 @@ $(document).ready(function () {
         e.preventDefault();
         var search = $("#movie-name").val();
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-        // console.log(search);
+       
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
 
-            // console.log(search)
-            // console.log(response);
+            
             $("#container").empty();
             for (var i = 0; i < response.Search.length; i++) {
-                // console.log("i is " + i);
+               
 
                 if (response.Search.Title === $("#movie-name").val()) {
                     var title = response.Search[i].Title;
@@ -41,9 +40,7 @@ $(document).ready(function () {
                     var img = response.Search[i].Poster
                     $("#container").append(response.Search[i].Title);
                     $("#container").append(response.Search[i].Year);
-                    // console.log(response.Search[i].imdbID);
-                    // console.log(response);
-                    // console.log("response check 2");
+            
 
 
                 } else {
@@ -51,8 +48,7 @@ $(document).ready(function () {
                     var year = response.Search[i].Year
                     var img = response.Search[i].Poster
                     $("#container").append("<div class='result'> <p>Title: " + title + " Year: " + year + "</p> <img src='" + img + "'> </div>");
-                    // console.log("Imprecise Movie Input");
-                    // console.log(response.Search[i].Title);
+                
                     $("#movie-name").keyup(function (event) {
                         event.preventDefault();
                         if (event.keyCode == 13) {
