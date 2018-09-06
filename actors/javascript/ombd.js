@@ -1,51 +1,10 @@
-// var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-// var search = "";
-
-/*  var compass = ["north", "east", "south", "west"];
- console.log("hello"); */
-
-/*   for (i = 0; i < compass.length; i++) {
-      $("body").append("<button class='movie-button " + "side" + i + "'>" + compass[i] + "</button>")
-      console.log("i is " + i);
- 
- 
- 
-  }; */
-// ON CLICK FUNCTION
-/* $(".movie-button ").click(function () {
-    console.log(name);
-    console.log('INSIDE CLICK #1')
-    $("p").append("<b>button[i]</b>");
-    // console.log(i);
-    // console.log("test");
-    // good code
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log('response is ' response);
-
-        if (response.Title === $("#movie-name").val()) {
-
-        } else {
-            console.log("Wrong Movie Input");
-            console.log(response.Title);
-        };
-
-        // console.log(response.data[i].embedded_url);
-        /*     var gifUrl = response.data[i].rating;
-            console.log("url is: " + gifUrl)
-            $(".container").append(`<img src="${gifUrl}">`); */
-/* });
-}); */
-
 $(document).ready(function () {
 
     $("#submit").click(function (e) {
         e.preventDefault();
         var search = $("#movie-name").val();
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-        console.log(search);
+        // console.log(search);
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -53,66 +12,114 @@ $(document).ready(function () {
             console.log(response);
             $("#container").empty();
             for (var i = 0; i < response.Search.length; i++) {
-                console.log("i is " + i);
-                var resultDiv = $('<div class="col-md-4 col-12">');
-                var info = $("<p>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>IMDb Trailer</a><hr><br><img src='" + img + "'><br>");
-
-                /*      if (response.Search.Title === $("#movie-name").val()) {
-                         var title = response.Search[i].Title;
-                         var year = response.Search[i].Year
-                         var img = response.Search[i].Poster
-                         var img = response.Search[i].Poster;
-                         img.alt('No Poster Available');
-                         $("#container").append(response.Search[i].Title);
-                         $("#container").append(response.Search[i].Year);
-                         console.log(response.Search[i].imdbID);
-                         console.log(response);
-                         console.log("response check 2");
-                         $("#movie-name").keyup(function(event){
-                             event.preventDefault();
-                             if(event.keyCode == 13){
-     
-                                 $("#submit").click();
-                             }
-                         });
-     
-                     } else { */
                 var title = response.Search[i].Title;
                 var year = response.Search[i].Year;
                 response.Search[i].imdbID
                 var noImg = function() {
                     if(response.Search[i].Poster === "N/A") {
-/*                         $("#container").append("<div class='result'> <img src='http://4.bp.blogspot.com/-uBZbGGe3zeA/T40TuyYUl6I/AAAAAAAABV0/pyBqkWi83x8/s1600/NO+POSTER.jpg'> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><hr><br></div>");
- */                        return false;
-                    }
+                   return false;
+                    };
                     return response.Search[i].Poster;
                 };
                 var img = noImg() || 'css/images/nopicture.png';
-                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><hr><br></div>");
+                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='tn-floating btn-small waves-effect waves-light green'><i class='material-icons'>add</i></a><hr><br></div>");
                 noImg;
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
-                    console.log("Imprecise Movie Input");
-                    console.log(response.Search[i].Title);
-                    console.log(response.Search[i].imdbID);
-                $("#movie-name").keyup(function (event) {
-                            event.preventDefault();
-                        if (event.keyCode == 13) {
-                            $("#submit").click();
-                        }
-                    })
                 };
+            
+            $(".tn-floating").click(function() {
+                console.log("button clicked")
+                $("#player").toggle();
+            })
     
             $(".brand-log").on('click', 'a', function (e) {
                             e.preventDefault();
                         var url = $(this).attr('index.html');
                     });
-                    // console.log(response.data[i].embedded_url);
-                    /*     var gifUrl = response.data[i].rating;
-                        console.log("url is: " + gifUrl)
-                $(".container").append(`<img src="${gifUrl}">`); */
                 });
         
             });
         
-        });
-        
+    // Firebase development
+    var config = {
+        apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
+        authDomain: "movieprojectissofun.firebaseapp.com",
+        databaseURL: "https://movieprojectissofun.firebaseio.com",
+        projectId: "movieprojectissofun",
+        storageBucket: "movieprojectissofun.appspot.com",
+        messagingSenderId: "920966827156"
+    };
+    firebase.initializeApp(config);
+
+
+    var database = firebase.database();
+    var searchArray = []
+
+    $("#submit").click(function (e) {
+        // add things to firebase
+        e.preventDefault();
+        var search = $("#movie-name").val();
+        database.ref().push(search);
+
+    });
+
+    database.ref().on("child_added", async function (childSnapshot) {
+// add our firebase to our array
+        var search2 = childSnapshot.val();
+        console.log(search2)
+        searchArray.push(search2);
+     
+    });
+    setTimeout(function () {
+        count();
+        console.log(searchArray)
+        console.log(newSearch)
+        newSearch.sort(compare)
+        console.log(newSearch)
+        makeTable();
+    }, 2000)
+
+    var newSearch = [];
+    function count() {
+
+        var current = null;
+        searchArray.sort();
+        var cnt = 0;
+// make a new array and add times searched into an object
+        for (var i = 0; i <= searchArray.length; i++) {
+
+            if (searchArray[i] != current) {
+
+                if (cnt > 0) {
+
+                    var newObj = {
+                        target: current,
+                        howMany: cnt,
+                    }
+                    newSearch.push(newObj)
+                }
+                current = searchArray[i];
+                cnt = 1;
+            } else {
+                cnt++;
+            }
+        }
+    }
+    function compare(a, b) {
+        // sort our new array by how many times things were searched
+        if (a.howMany > b.howMany)
+            return -1;
+        if (a.howMany < b.howMany)
+            return 1;
+        return 0;
+    };
+    //  select recent serach boxes and append newSearch[number].target for amount of seach results you want
+    function makeTable() {
+        for (var i = 0; i < 5; i++) {
+
+            $('#searchResults').append("<tr><td>" + newSearch[i].target + "</td><td>" + newSearch[i].howMany + "</td></tr>")
+            console.log(newSearch)
+        }
+    }
+});
+
