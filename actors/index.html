@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!--Our own stylesheet relative path-->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Actor Scope</title>
     <!--Let browser know website is optimized for mobile-->
@@ -13,18 +14,29 @@
 </head>
 
 <body>
+    <!--Navbar from Materialize-->
     <div class="navbar-fixed">
-        <nav>
+        <nav class="coral">
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo"><i class="material-icons movie-icon">local_movie</i>Amoureux du Cinéma</a>
+                <a href="index.html" class="brand-logo"><i class="material-icons">local_movie</i>Amoureux du Cinéma</a>
+
+                <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                    <i class="material-icons">menu</i>
+                </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="https://www.imdb.com/" target="_blank">IMDBs</a></li>
+                    <li><a href="https://www.imdb.com/" target="_blank">IMDB</a></li>
                     <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
-                    <li class="fandango"><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
+                    <li><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
                 </ul>
         </nav>
+        <!--Mobile responsiveness-->
+                <ul class="sidenav" id="mobile-nav">
+                <li><a href="https://www.imdb.com/">IMDB</a></li>
+                <li><a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
+                <li><a href="https://www.rottentomatoes.com/">Fandango</a></li>
+              </ul>
         </div>
-
+        <!--Div where search bar is contained-->
         <div class="main-container">
             <h4 class="headline">Search Your Favorite Movie</h4>
 
@@ -38,44 +50,55 @@
 
             <br>
             <br>
-            <div id="chart">
-                <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
-            </div>
+            <!--Script for Top 5 Box Office Chart-->
 
-            <div id="table">
-                <table id="table2">
-                    <thead class="chart-head">
-                        <tr>
-                            <th>Top Searches</th>
-                            <th>Times Searched</th>
-                        </tr>
-                    </thead>
-                    <tbody class="chart-body" id="searchResults">
-                    </tbody>
-                </table>
+            <div class="row">
+                <!--Table where top searches are recorded-->
+                <div class="col s6 m6">
+                    <div id="table">
+                        <table id="table2">
+                            <thead class="chart-head">
+                                <tr>
+                                    <th>Top Searches</th>
+                                    <th>Times Searched</th>
+                                </tr>
+                            </thead>
+                            <tbody class="chart-body" id="searchResults">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col s6 m6"> </div>
+                <div class="col s6 m6">
+                    <div id="chart">
+                        <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
+                    </div>
+                </div>
+               
             </div>
             <div id="player"></div>
 
-
+            <!--The div where the youtube video appears-->
             <div id="container">
-                    <div id="player" class="hidden"></div>
+                <!--Hidden from the start until user clicks button-->
+                <!-- <div id="player" class="hidden"></div> -->
             </div>
         </div>
-            <footer>
-                <div class="footer">
-                    &copy; copyright 2018 - La Quincaillerie
-                </div>
-            </footer>
-        </div>
+        <footer>
+            <div class="footer">
+                &copy; copyright 2018 - La Quincaillerie
+            </div>
+        </footer>
+    </div>
 
-        <!-- <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=" +search+ "amp;shortgross=0"></script> -->
+    <!-- <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=" +search+ "amp;shortgross=0"></script> -->
 
 
-        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-        <script src="javascript/youtube.js"></script>
-        <script src="javascript/ombd.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="javascript/youtube.js"></script>
+    <script src="javascript/ombd.js"></script>
 
 </body>
 
