@@ -1,5 +1,7 @@
 //Code will run once DOM is ready for JavaScript
 $(document).ready(function () {
+$('.sidenav').sidenav();
+
     //Click function for the submit button
     $("#submit").click(function (e) {
         e.preventDefault();
@@ -28,12 +30,12 @@ $(document).ready(function () {
                     return response.Search[i].Poster;
                 };
                 var img = noImg() || 'css/images/nopicture.png';
-                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='tn-floating btn-small waves-effect waves-light green'><i class='material-icons'>add</i></a><hr><br></div>");
+                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='btn-floating btn-small waves-effect waves-light red'><i class='material-icons'>add</i><br></a><hr><br></div>");
                 noImg;
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
                 };
             //Brings out YouTube Video when clicked 
-            $(".tn-floating").click(function() {
+            $(".btn-floating").click(function() {
                 console.log("button clicked")
                 $("#player").toggle();
             })
