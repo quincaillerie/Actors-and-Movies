@@ -6,7 +6,7 @@ $('.sidenav').sidenav();
     $("#submit").click(function (e) {
         e.preventDefault();
         //Puts the input that the user typed into a variable
-        var search = $("#movie-name").val();
+        var search = $("#movie-name").val().toLowerCase();
         //Variable for api key with search variable implemented in url
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
         $.ajax({
