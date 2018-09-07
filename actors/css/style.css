@@ -23,8 +23,47 @@ main {
         border-right: 30px;
 }
 
-#chart {
-        margin-right: 30px;
+/* #chart {
+        width: 100px;
+} */
+
+table {
+        /* width: 50%; */
+        border: solid lightslategray;
+        float: right;
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+}
+
+#table {
+  float: left;   
+  margin-left:30px; 
+  /* width: 28%; */
+}
+
+#table2 {
+        width: 100%;
+      }
+
+.chart-head {
+        background-color: lightcoral;
+        color: white;
+        font-weight: bold;
+        size: 20px;
+}
+
+.chart-body {
+        background-color:white;
+        padding-left: 10px;
+        border-right: 10px;
+}
+
+
+
+
+tbody {
+        width: 100%;
 }
 
 .main-container {
@@ -81,36 +120,7 @@ margin-top: 10px;
 margin-left: 260px;
 }
 
-table {
-        width: 30%;
-        border: solid lightslategray;
-        float: right;
-        margin-top: 20px;
-        margin-right: 10px;
-}
 
-#table {
-  float: left;   
-  margin-left:30px; 
-  width: 28%;
-}
-
-#table2 {
-        width: 100%;
-      }
-
-.chart-head {
-        background-color: lightcoral;
-        color: white;
-        font-weight: bold;
-        size: 20px;
-}
-
-.chart-body {
-        background-color:white;
-        padding-left: 10px;
-        border-right: 10px;
-}
 
 .hidden {
         display: block !important;
