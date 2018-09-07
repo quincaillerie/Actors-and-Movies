@@ -1,6 +1,6 @@
 //Code will run once DOM is ready for JavaScript
 $(document).ready(function () {
-$('.sidenav').sidenav();
+    $('.sidenav').sidenav();
 
     //Click function for the submit button
     $("#submit").click(function (e) {
@@ -23,31 +23,31 @@ $('.sidenav').sidenav();
                 //Variable for the value of year
                 var year = response.Search[i].Year;
                 //function for default 'no poster' results
-                var noImg = function() {
-                    if(response.Search[i].Poster === "N/A") {
-                   return false;
+                var noImg = function () {
+                    if (response.Search[i].Poster === "N/A") {
+                        return false;
                     };
                     return response.Search[i].Poster;
                 };
                 var img = noImg() || 'css/images/nopicture.png';
-                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='btn-floating btn-small waves-effect waves-light red'><i class='material-icons'>add</i><br></a><hr><br></div>");
+                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id=" + search + "amp;shortgross=0'></script><br><a class='btn-floating btn-small waves-effect waves-light red'><i class='material-icons'>add</i><br></a><hr><br></div>");
                 noImg;
-                    $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
-                };
+                $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
+            };
             //Brings out YouTube Video when clicked 
-            $(".btn-floating").click(function() {
+            $(".btn-floating").click(function () {
                 console.log("button clicked")
                 $("#player").toggle();
             })
-    
+
             $(".brand-log").on('click', 'a', function (e) {
-                            e.preventDefault();
-                        var url = $(this).attr('index.html');
-                    });
-                });
-        
+                e.preventDefault();
+                var url = $(this).attr('index.html');
             });
-        
+        });
+
+    });
+
     // Firebase development
     var config = {
         apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
@@ -59,9 +59,16 @@ $('.sidenav').sidenav();
     };
     firebase.initializeApp(config);
 
-    
+
     var database = firebase.database();
     var searchArray = []
+    var sorted = [];
+    // make search results lowercase
+//    function lowerCase(){ 
+//        for (var i = 0; i < searchArray.length; i++) {
+//         sorted.push(searchArray[i].toLowerCase());
+//     }
+// }
 
     $("#submit").click(function (e) {
         // add things to firebase
@@ -71,29 +78,37 @@ $('.sidenav').sidenav();
 
     });
 
-    database.ref().on("child_added", async function (childSnapshot) {
-// add our firebase to our array
+    database.ref().on("child_added", function (childSnapshot) {
+        // add our firebase to our array
         var search2 = childSnapshot.val();
-        console.log(search2)
-        searchArray.push(search2);
-     
+        // console.log(search2)
+        var search3 = search2.toUpperCase();
+        // console.log(search3)
+        // var search4 = serach3.charAt(0).toUpperCase();
+        // var search5 = search3.slice(1);
+        // var search6 = search4+search5;
+        // console.log("lookgHERE")
+        // console.log(search6)
+        searchArray.push(search3);
+
     });
     setTimeout(function () {
         count();
-        console.log(searchArray)
-        console.log(newSearch)
+        // console.log("lookHERE")
+        // console.log(searchArray)
+        // console.log(newSearch)
         newSearch.sort(compare)
-        console.log(newSearch)
+        // console.log(newSearch)
         makeTable();
     }, 2000)
 
     var newSearch = [];
     function count() {
-
+    
         var current = null;
         searchArray.sort();
         var cnt = 0;
-// make a new array and add times searched into an object
+        // make a new array and add times searched into an object
         for (var i = 0; i <= searchArray.length; i++) {
 
             if (searchArray[i] != current) {
@@ -121,6 +136,7 @@ $('.sidenav').sidenav();
             return 1;
         return 0;
     };
+
     //  select recent serach boxes and append newSearch[number].target for amount of seach results you want
     function makeTable() {
         for (var i = 0; i < 5; i++) {
