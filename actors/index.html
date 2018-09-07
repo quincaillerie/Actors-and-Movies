@@ -16,15 +16,25 @@
 <body>
     <!--Navbar from Materialize-->
     <div class="navbar-fixed">
-        <nav>
+        <nav class="coral" >
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo"><i class="material-icons movie-icon">local_movie</i>Amoureux du Cinéma</a>
+                <a href="index.html" class="brand-logo"><i class="material-icons" >local_movie</i>Amoureux du Cinéma</a>
+               
+               <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                   <i class="material-icons">menu</i>
+               </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="https://www.imdb.com/" target="_blank">IMDB</a></li>
                     <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
-                    <li class="fandango"><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
+                    <li><a href="https://www.fandango.com/" target="_blank">Fandango</a></li>
                 </ul>
         </nav>
+
+                <ul class="sidenav" id="mobile-nav">
+                <li><a href="https://www.imdb.com/">IMDB</a></li>
+                <li><a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
+                <li><a href="https://www.rottentomatoes.com/">Fandango</a></li>
+              </ul>
         </div>
         <!--Div where search bar is contained-->
         <div class="main-container">
@@ -61,25 +71,25 @@
 
             <!--The div where the youtube video appears-->
             <div id="container">
-                    <!--Hidden from the start until user clicks button-->
-                    <div id="player" class="hidden"></div>
+                <!--Hidden from the start until user clicks button-->
+                <div id="player" class="hidden"></div>
             </div>
         </div>
-            <footer>
-                <div class="footer">
-                    &copy; copyright 2018 - La Quincaillerie
-                </div>
-            </footer>
-        </div>
+        <footer>
+            <div class="footer">
+                &copy; copyright 2018 - La Quincaillerie
+            </div>
+        </footer>
+    </div>
 
-        <!-- <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=" +search+ "amp;shortgross=0"></script> -->
+    <!-- <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=" +search+ "amp;shortgross=0"></script> -->
 
 
-        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-        <script src="javascript/youtube.js"></script>
-        <script src="javascript/ombd.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="javascript/youtube.js"></script>
+    <script src="javascript/ombd.js"></script>
 
 </body>
 
