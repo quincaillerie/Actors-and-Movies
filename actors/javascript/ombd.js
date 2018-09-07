@@ -1,20 +1,26 @@
+//Code will run once DOM is ready for JavaScript
 $(document).ready(function () {
-
+    //Click function for the submit button
     $("#submit").click(function (e) {
         e.preventDefault();
+        //Puts the input that the user typed into a variable
         var search = $("#movie-name").val();
+        //Variable for api key with search variable implemented in url
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-        // console.log(search);
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             console.log(response);
+            //Clears previous search's results from div
             $("#container").empty();
+            //for loop that allows us to access key value pairs of objects
             for (var i = 0; i < response.Search.length; i++) {
+                //Variable for the value of title
                 var title = response.Search[i].Title;
+                //Variable for the value of year
                 var year = response.Search[i].Year;
-                response.Search[i].imdbID
+                //function for default 'no poster' results
                 var noImg = function() {
                     if(response.Search[i].Poster === "N/A") {
                    return false;
@@ -26,7 +32,7 @@ $(document).ready(function () {
                 noImg;
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
                 };
-            
+            //Brings out YouTube Video when clicked 
             $(".tn-floating").click(function() {
                 console.log("button clicked")
                 $("#player").toggle();
@@ -51,7 +57,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-
+    
     var database = firebase.database();
     var searchArray = []
 
