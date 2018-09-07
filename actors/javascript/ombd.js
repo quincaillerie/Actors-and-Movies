@@ -1,23 +1,28 @@
+//Code will run once DOM is ready for JavaScript
 $(document).ready(function () {
+$('.sidenav').sidenav();
 
+    //Click function for the submit button
     $("#submit").click(function (e) {
         e.preventDefault();
+        //Puts the input that the user typed into a variable
         var search = $("#movie-name").val();
+        //Variable for api key with search variable implemented in url
         var queryURL = " http://www.omdbapi.com/?s=" + search + "&apikey=2fa555f3";
-        console.log(search);
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             console.log(response);
+            //Clears previous search's results from div
             $("#container").empty();
+            //for loop that allows us to access key value pairs of objects
             for (var i = 0; i < response.Search.length; i++) {
-                console.log("i is " + i);
-                // var resultDiv = $('<div class="col s4"> </div>');
-                // var info = $("<p class=>" + title + " Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>IMDb Trailer</a><hr><br><img src='" + img + "'><br>");
-
+                //Variable for the value of title
                 var title = response.Search[i].Title;
+                //Variable for the value of year
                 var year = response.Search[i].Year;
+                //function for default 'no poster' results
                 var noImg = function() {
                     if(response.Search[i].Poster === "N/A") {
                    return false;
@@ -25,19 +30,15 @@ $(document).ready(function () {
                     return response.Search[i].Poster;
                 };
                 var img = noImg() || 'css/images/nopicture.png';
-                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><hr><br></div>");
+                $("#container").append("<div class='result'> <img src=" + img + "> <p><b>" + title + '</b><br>' + "Year: " + year + "</p> <a target='_blank' href='https://www.imdb.com/title/" + response.Search[i].imdbID + "/'>More Info</a><script type='text/javascript' language='javascript' src='https://www.boxofficemojo.com/data/js/moviegross.php?id="+ search +"amp;shortgross=0'></script><br><a class='btn-floating btn-small waves-effect waves-light red'><i class='material-icons'>add</i><br></a><hr><br></div>");
                 noImg;
                     $("body").append('<script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/moviegross.php?id=' + search + '&amp;shortgross=0"></script>')
-                    console.log("Imprecise Movie Input");
-                    console.log(response.Search[i].Title);
-                    console.log(response.Search[i].imdbID);
-                $("#movie-name").keyup(function (event) {
-                            event.preventDefault();
-                        if (event.keyCode == 13) {
-                            $("#submit").click();
-                        }
-                    })
                 };
+            //Brings out YouTube Video when clicked 
+            $(".btn-floating").click(function() {
+                console.log("button clicked")
+                $("#player").toggle();
+            })
     
             $(".brand-log").on('click', 'a', function (e) {
                             e.preventDefault();
@@ -47,12 +48,7 @@ $(document).ready(function () {
         
             });
         
-        
-        
-
-
-
-    
+    // Firebase development
     var config = {
         apiKey: "AIzaSyCoKN3aBcomtecZICsL1l_FNfBZawPOzow",
         authDomain: "movieprojectissofun.firebaseapp.com",
@@ -63,7 +59,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-
+    
     var database = firebase.database();
     var searchArray = []
 
@@ -112,14 +108,10 @@ $(document).ready(function () {
                 }
                 current = searchArray[i];
                 cnt = 1;
-
             } else {
-
                 cnt++;
-
             }
         }
-
     }
     function compare(a, b) {
         // sort our new array by how many times things were searched
@@ -131,7 +123,7 @@ $(document).ready(function () {
     };
     //  select recent serach boxes and append newSearch[number].target for amount of seach results you want
     function makeTable() {
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 5; i++) {
 
             $('#searchResults').append("<tr><td>" + newSearch[i].target + "</td><td>" + newSearch[i].howMany + "</td></tr>")
             console.log(newSearch)
