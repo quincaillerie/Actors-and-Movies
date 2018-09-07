@@ -16,13 +16,13 @@
 <body>
     <!--Navbar from Materialize-->
     <div class="navbar-fixed">
-        <nav class="coral" >
+        <nav class="coral">
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo"><i class="material-icons" >local_movie</i>Amoureux du Cinéma</a>
-               
-               <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                   <i class="material-icons">menu</i>
-               </a>
+                <a href="index.html" class="brand-logo"><i class="material-icons">local_movie</i>Amoureux du Cinéma</a>
+
+                <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                    <i class="material-icons">menu</i>
+                </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="https://www.imdb.com/" target="_blank">IMDB</a></li>
                     <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
@@ -30,11 +30,11 @@
                 </ul>
         </nav>
 
-                <ul class="sidenav" id="mobile-nav">
-                <li><a href="https://www.imdb.com/">IMDB</a></li>
-                <li><a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
-                <li><a href="https://www.rottentomatoes.com/">Fandango</a></li>
-              </ul>
+        <ul class="sidenav" id="mobile-nav">
+            <li><a href="https://www.imdb.com/">IMDB</a></li>
+            <li><a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
+            <li><a href="https://www.rottentomatoes.com/">Fandango</a></li>
+        </ul>
         </div>
         <!--Div where search bar is contained-->
         <div class="main-container">
@@ -51,28 +51,37 @@
             <br>
             <br>
             <!--Script for Top 5 Box Office Chart-->
-            <div id="chart">
-                <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
-            </div>
-            <!--Table where top searches are recorded-->
-            <div id="table">
-                <table id="table2">
-                    <thead class="chart-head">
-                        <tr>
-                            <th>Top Searches</th>
-                            <th>Times Searched</th>
-                        </tr>
-                    </thead>
-                    <tbody class="chart-body" id="searchResults">
-                    </tbody>
-                </table>
+
+            <div class="row">
+                <!--Table where top searches are recorded-->
+                <div class="col s6 m6">
+                    <div id="table">
+                        <table id="table2">
+                            <thead class="chart-head">
+                                <tr>
+                                    <th>Top Searches</th>
+                                    <th>Times Searched</th>
+                                </tr>
+                            </thead>
+                            <tbody class="chart-body" id="searchResults">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col s6 m6"> </div>
+                <div class="col s6 m6">
+                    <div id="chart">
+                        <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=chart-head&amp;r=chart-body"></script>
+                    </div>
+                </div>
+               
             </div>
             <div id="player"></div>
 
             <!--The div where the youtube video appears-->
             <div id="container">
                 <!--Hidden from the start until user clicks button-->
-                <div id="player" class="hidden"></div>
+                <!-- <div id="player" class="hidden"></div> -->
             </div>
         </div>
         <footer>
