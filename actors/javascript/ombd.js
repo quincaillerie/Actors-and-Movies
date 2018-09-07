@@ -71,12 +71,18 @@ $('.sidenav').sidenav();
 
     });
 
-    database.ref().on("child_added", async function (childSnapshot) {
-// add our firebase to our array
+    database.ref().on("child_added", function (childSnapshot) {
+        // add our firebase to our array
         var search2 = childSnapshot.val();
-        console.log(search2)
-        searchArray.push(search2);
-     
+        // console.log(search2)
+        var search3 = search2.toUpperCase();
+        // console.log(search3)
+        // var search4 = serach3.charAt(0).toUpperCase();
+        // var search5 = search3.slice(1);
+        // var search6 = search4+search5;
+        // console.log("lookgHERE")
+        // console.log(search6)
+        searchArray.push(search3);
     });
     setTimeout(function () {
         count();
