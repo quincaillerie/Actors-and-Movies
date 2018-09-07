@@ -11,6 +11,7 @@ body {
          flex-direction: column;
 }
 
+/* NavBar */
 .title {
         min-width: 33%;
 }
@@ -18,6 +19,7 @@ body {
 main {
         flex: 1 0 auto;
       }
+
        
 #box-office {
         border-right: 30px;
@@ -60,8 +62,6 @@ table {
 }
 
 
-
-
 tbody {
         width: 100%;
 }
@@ -101,6 +101,7 @@ tbody {
         margin-left: 30px;
 }
 
+/* search box */
 .form-search {
         width: 1000px;
         padding-left: 30px;
@@ -111,15 +112,46 @@ tbody {
        margin-left: 20px;
 }
 
+/* Tables and charts */
 
-hr {
-margin-top: 10px;
+#box-office {
+        border-right: 30px;
 }
 
-.btn-floating      {
-margin-left: 260px;
+#chart {
+        margin-right: 30px;
 }
 
+.chart-head {
+        background-color: lightcoral;
+        color: white;
+        font-weight: bold;
+        size: 20px;
+}
+
+.chart-body {
+        background-color:white;
+        padding-left: 10px;
+        border-right: 10px;
+}
+.main-container {
+        max-width: 1100px;
+        margin: 25px auto 0 auto;
+        background-color: white;
+        opacity: .92;
+        border-style: double;
+        border-width:10px;
+        background-color: #e6e6e6;
+}
+
+/* Results */
+.result {
+        padding-right: 31px;
+        padding-left: 30px;
+        /* border: solid lightslategray 1px; */
+        display: inline-block;
+        width: 33%;
+}
 
 
 .hidden {
@@ -131,6 +163,13 @@ margin-left: 260px;
         margin-left: 20%;
 }
 
+hr {
+        margin-top: 10px;
+        }
+        
+        .btn-floating      {
+        margin-left: 260px;
+        }
 
 .footer {
         position: fixed;
@@ -142,6 +181,7 @@ margin-left: 260px;
         text-align: center;
 }
 
+/* mobile responsive */
 @media screen and (max-width: 980px) {
         .column  {
             width: 900px;
